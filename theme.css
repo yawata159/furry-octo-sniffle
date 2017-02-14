@@ -2,7 +2,7 @@ h1 {
     text-align: center;
     font-family: sans-serif;
 }
-#canvas {
+#canvas, #canvas2 {
     border: 1px solid #16a085;
     display: block;
     margin: auto;

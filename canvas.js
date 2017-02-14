@@ -6,6 +6,13 @@ canvas.addEventListener("click", createRectangle);
 var button = document.getElementById("clear");
 button.addEventListener("click", clearCanvas);
 
+var canvas2 = document.getElementById('canvas2');
+var ctx2 = canvas2.getContext('2d');
+canvas2.addEventListener("click", createPath);
+
+var button2= document.getElementById('clear2');
+button2.addEventListener("click", clearCanvas2);
+
 function createRectangle(e) {
     var canvX = e.offsetX;
     var canvY = e.offsetY;
@@ -21,6 +28,18 @@ function randColor() {
     return colors[Math.floor(Math.random()*colors.length)];
 }
 
+function createPath(e) {
+    var canvX = e.offsetX;
+    var canvY = e.offsetY;
+    
+    ctx2.beginPath();
+    ctx2.moveTo(canvX, canvY);
+}
+
 function clearCanvas() {
     ctx.clearRect(0, 0, 700, 500);
+}
+
+function clearCanvas2() {
+    ctx2.clearRect(0, 0, 700, 500);
 }
