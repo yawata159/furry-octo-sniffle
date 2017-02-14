@@ -1,17 +1,18 @@
+var colors = ["#1abc9c","#2ecc71","#16a085","#27ae60","#3498db","#2980b9","#9b59b6","#8e44ad","#f1c40f","#f39c12","#e67e22","#e74c3c","#2c3e50"];
+
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
-var colors = ["#1abc9c","#2ecc71","#16a085","#27ae60","#3498db","#2980b9","#9b59b6","#8e44ad","#f1c40f","#f39c12","#e67e22","#e74c3c","#2c3e50"];
 canvas.addEventListener("click", createRectangle);
 
 var button = document.getElementById("clear");
-button.addEventListener("click", clearCanvas);
+button.addEventListener("click", clearCanvas(ctx));
 
 var canvas2 = document.getElementById('canvas2');
 var ctx2 = canvas2.getContext('2d');
 canvas2.addEventListener("click", createPath);
 
 var button2= document.getElementById('clear2');
-button2.addEventListener("click", clearCanvas2);
+button2.addEventListener("click", clearCanvas(ctx2));
 
 function createRectangle(e) {
     var canvX = e.offsetX;
@@ -31,15 +32,13 @@ function randColor() {
 function createPath(e) {
     var canvX = e.offsetX;
     var canvY = e.offsetY;
-    
+    console.log(canvX, canvY) 
     ctx2.beginPath();
     ctx2.moveTo(canvX, canvY);
 }
 
-function clearCanvas() {
-    ctx.clearRect(0, 0, 700, 500);
-}
-
-function clearCanvas2() {
-    ctx2.clearRect(0, 0, 700, 500);
+function clearCanvas(context) {
+    return function() {
+        context.clearRect(0, 0, 700, 500);
+    }
 }
