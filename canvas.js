@@ -22,7 +22,7 @@ function createRectangle(e) {
     var rectHeight = Math.round(40 + Math.random()*110);
 
     ctx.fillStyle = randColor();
-    ctx.fillRect(canvX-rectWidth/2, canvY-rectHeight/2, rectWidth, rectHeight); //place rect centered at mouse coords
+    ctx.fillRect(canvX-rectWidth/2, canvY-rectHeight/2, rectWidth, rectHeight);
 }
 
 function randColor() {
@@ -33,6 +33,8 @@ function createPath(e) {
     var canvX = e.offsetX;
     var canvY = e.offsetY;
     console.log(canvX, canvY) 
+
+    // TODO
     ctx2.beginPath();
     ctx2.moveTo(canvX, canvY);
 }
