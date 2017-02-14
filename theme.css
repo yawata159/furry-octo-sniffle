@@ -7,3 +7,7 @@ h1 {
     display: block;
     margin: auto;
 }
+button {
+    margin: auto;
+    display: block;
+}
