@@ -11,7 +11,7 @@ var canvas2 = document.getElementById('canvas2');
 var ctx2 = canvas2.getContext('2d');
 canvas2.addEventListener("click", createPath);
 
-var button2= document.getElementById('clear2');
+var button2 = document.getElementById('clear2');
 button2.addEventListener("click", clearCanvas(ctx2));
 
 function createRectangle(e) {
@@ -32,15 +32,18 @@ function randColor() {
 function createPath(e) {
     var canvX = e.offsetX;
     var canvY = e.offsetY;
-    console.log(canvX, canvY) 
+    console.log(canvX, canvY);
 
-    // TODO
-    ctx2.beginPath();
+    ctx2.arc(canvX, canvY, 20, 0, 2 * Math.PI);
+    ctx2.stroke();
     ctx2.moveTo(canvX, canvY);
+    ctx2.fillStyle = "#FF0000";
+    ctx2.fill();
 }
 
 function clearCanvas(context) {
     return function() {
         context.clearRect(0, 0, 700, 500);
+	context.beginPath();
     }
 }
